@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<!-- <link rel="import" href="https://polygit.org/components/iron-input/iron-input.html"> -->
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
+<dom-module id="input-number">
+    <template>
+
+        <iron-input bind-value="{{number}}">
+            <input type="text" id="inputNumber">
+        </iron-input>
+        <!-- <input type="text" name="inputNumber" id="inputNumber"> -->
+        <button on-click="handleClick">Click to check</button><br>
+        <p>Prime number between 1 to [[number]] :</p>
+
+    </template>
+    <script>
+        class InputNumber extends Polymer.Element {
+            static get is() {
+                return "input-number";
+            }
+            static get properties() {
+                return {
+                    inputNumber: {
+                        type: String,
+                        value: '',
+                        reflectToAttribute: true,
+                        notify:true
+                    },
+                    number: {
+                        type: String,
+                        value:'',
+                        notify:true
+                    }
+                }
+            }
+            handleClick() {
+                var number = parseInt(this.$.inputNumber.value);
+                console.log(number);
+                
+                if (isNaN(number) || number <= 0) {
+                    alert('Please enter a positive number');
+                } else {
+                    var primeNumberArr = [];
+                    for (var i = 1; i <= number; i++) {
+                        var notPrime = false;
+                        for (var j = 2; j <= i; j++) {
+                            if (i % j === 0 && j !== i) {
+                                notPrime = true;
+                            }
+                        }
+                        if (notPrime === false) {
+                            primeNumberArr.push(i);
+                        }
+                    }
+                    this.inputNumber = primeNumberArr.toString();
+                    console.log(this.inputNumber);
+                }
+            }
+        }
+        customElements.define(InputNumber.is, InputNumber);
+    </script>
+</dom-module>

@@ -1,0 +1,29 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="input-text">
+    <template>
+        <style>
+            input {
+                margin-bottom: 20px;
+            }
+        </style>
+        
+        <input type="text" placeholder="Enter text" value=[[inputText]] on-input="_handleChange" />
+    </template>
+
+    <script>
+        Polymer({
+            is: 'input-text',
+            properties: {
+                inputText: {
+                    type: String,
+                    value: '',
+                    notify: true
+                }
+            },
+            _handleChange: function (e) {
+                this.inputText = e.target.value;
+            }
+        });
+    </script>
+</dom-module>

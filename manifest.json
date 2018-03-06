@@ -1,0 +1,6 @@
+{
+  "name": "tech-test",
+  "short_name": "tech-test",
+  "start_url": "/",
+  "display": "standalone"
+}

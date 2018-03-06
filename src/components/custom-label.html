@@ -1,0 +1,19 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="custom-label">
+    <template>
+        <label>Hello {{labelText}}</label>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'custom-label',
+            properties: {
+                labelText: {
+                    type: String,
+                    value: ''
+                }
+            }
+        });
+    </script>
+</dom-module>

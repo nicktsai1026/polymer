@@ -1,0 +1,24 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="output-number">
+    <template>
+        <p>{{outputNumber}}</p>
+
+    </template>
+    <script>
+        class OutputNumber extends Polymer.Element {
+            static get is() {
+                return "output-number";
+            }
+            static get properties() {
+                return {
+                    outputNumber: {
+                        type: String,
+                        value: ''
+                    }
+                }
+            }
+        }
+        customElements.define(OutputNumber.is, OutputNumber);
+    </script>
+</dom-module>

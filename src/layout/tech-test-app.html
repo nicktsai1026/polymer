@@ -1,0 +1,60 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/lib/mixins/gesture-event-listeners.html">
+
+<link rel="import" href="../components/input-text.html">
+<link rel="import" href="../components/custom-label.html">
+<link rel="import" href="../components/input-number.html">
+<link rel="import" href="../components/output-number.html">
+
+<dom-module id="tech-test-app">
+  <template>
+    <style>
+      .task1 {
+        border: 1px solid black;
+        padding: 20px;
+      }
+      .task2 {
+        margin-top: 20px;
+        border: 1px solid black;
+        padding: 20px;
+      }
+      h1 {
+        margin-top:0px;
+      }
+    </style>
+    <div class="task1">
+      <h1>Task 1</h1>
+      <div>
+        <p>Type your name:</p>
+        <input-text input-text="{{data}}"></input-text>
+      </div>
+      <div>
+        <custom-label label-text="{{data}}"></custom-label>
+      </div>
+    </div>
+    <div class="task2">
+      <h1>Task 2</h1>
+      <p>Check prime number:</p>
+      <input-number input-number="{{number}}"></input-number>
+      <div>
+        <output-number output-number="{{number}}"></output-number>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'tech-test-app',
+      properties: {
+        data: {
+          type: String,
+          value: ''
+        },
+        number: {
+          type: String,
+          value: ''
+        }
+      }
+    });
+  </script>
+</dom-module>
